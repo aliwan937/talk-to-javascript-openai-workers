@@ -3,16 +3,16 @@
 		/* Visit https://aka.ms/tsconfig.json to read more about this file */
 
 		/* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-		"target": "es2021",
+		"target": "ES2020",
 		/* Specify a set of bundled library declaration files that describe the target runtime environment. */
-		"lib": ["es2021"],
+		"lib": ["ES2020", "DOM", "DOM.Iterable"],
 		/* Specify what JSX code is generated. */
 		"jsx": "react-jsx",
 
 		/* Specify what module code is generated. */
-		"module": "es2022",
+		"module": "ESNext",
 		/* Specify how TypeScript looks up a file from a given module specifier. */
-		"moduleResolution": "Bundler",
+		"moduleResolution": "bundler",
 		/* Specify type package names to be included without being referenced in a source file. */
 		"types": [
 			"@cloudflare/workers-types/2023-07-01"
@@ -39,8 +39,22 @@
 		"strict": true,
 
 		/* Skip type checking all .d.ts files. */
-		"skipLibCheck": true
+		"skipLibCheck": true,
+
+		/* Enable type checking for unused locals. */
+		"noUnusedLocals": true,
+		/* Enable type checking for unused parameters. */
+		"noUnusedParameters": true,
+		/* Enable type checking for fallthrough cases in switch statements. */
+		"noFallthroughCasesInSwitch": true,
+
+		/* Enable importing TypeScript extensions. */
+		"allowImportingTsExtensions": true,
+
+		/* Enable use of define for class fields. */
+		"useDefineForClassFields": true
 	},
 	"exclude": ["test"],
-	"include": ["worker-configuration.d.ts", "src/**/*.ts"]
+	"include": ["src"],
+	"references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,7 +1,7 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "talk-to-javascript"
-main = "src/index.ts"
-compatibility_date = "2024-01-15"
+name = "web-scraper"
+main = "src/worker/index.ts"
+compatibility_date = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
 
 # Workers Logs
@@ -25,10 +25,15 @@ directory = "./public"
 # - https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
 # Note: Use secrets to store sensitive data.
 # - https://developers.cloudflare.com/workers/configuration/secrets/
-# [vars]
-# MY_VARIABLE = "production_value"
+[vars]
+# This is a placeholder - you'll need to set the actual API key in your Cloudflare dashboard
+# or using wrangler secret
+# SCRAPINGANT_API_KEY = ""
 
-# Bind the Workers AI model catalog. Run machine learning models, powered by serverless GPUs, on Cloudflare’s global network
+# Add the secret using:
+# wrangler secret put SCRAPINGANT_API_KEY
+
+# Bind the Workers AI model catalog. Run machine learning models, powered by serverless GPUs, on Cloudflare's global network
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#workers-ai
 # [ai]
 # binding = "AI"
@@ -43,7 +48,7 @@ directory = "./public"
 # [browser]
 # binding = "MY_BROWSER"
 
-# Bind a D1 database. D1 is Cloudflare’s native serverless SQL database.
+# Bind a D1 database. D1 is Cloudflare's native serverless SQL database.
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#d1-databases
 # [[d1_databases]]
 # binding = "MY_DB"
